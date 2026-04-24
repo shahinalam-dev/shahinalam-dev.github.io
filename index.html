@@ -1,0 +1,992 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Primary SEO -->
+  <title>Shahin Alam | Full-Stack Software Engineer</title>
+  <meta name="title" content="Shahin Alam | Full-Stack Software Engineer" />
+  <meta name="description"
+    content="Md. Shahin Alam — Full-Stack Software Engineer specializing in PHP, Laravel, MySQL & scalable web applications. Based in Dhaka, Bangladesh." />
+  <meta name="keywords"
+    content="Shahin Alam, Full-Stack Software Engineer, Laravel Developer, PHP Developer, MySQL, Web Developer Bangladesh" />
+  <meta name="author" content="Shahin Alam" />
+  <meta name="robots" content="index, follow" />
+
+  <!-- Open Graph (Facebook, LinkedIn) -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://shahinalam-dev.github.io/" />
+  <meta property="og:title" content="Shahin Alam | Full-Stack Software Engineer" />
+  <meta property="og:description" content="Full-Stack Software Engineer skilled in Laravel, PHP & scalable systems." />
+  <meta property="og:image" content="https://shahinalam-dev.github.io/img/preview.png" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:url" content="https://shahinalam-dev.github.io/" />
+  <meta name="twitter:title" content="Shahin Alam | Full-Stack Software Engineer" />
+  <meta name="twitter:description" content="Full-Stack Software Engineer specializing in Laravel & scalable web apps." />
+  <meta name="twitter:image" content="https://shahinalam-dev.github.io/img/preview.png" />
+
+  <!-- Favicon -->
+  <link rel="icon" href="img/shhain.ico" type="image/x-icon" />
+  <link rel="shortcut icon" href="img/shhain.ico" type="image/x-icon" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png" />
+  <link rel="manifest" href="/favicon/site.webmanifest" />
+
+  <!-- Theme Color (Mobile Browser) -->
+  <meta name="theme-color" content="#0f172a" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600;700&family=Syne:wght@700;800&display=swap"
+    rel="stylesheet" />
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="style.css" />
+
+  <!-- Canonical -->
+  <link rel="canonical" href="https://shahinalam-dev.github.io/" />
+
+  <!-- JSON-LD Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Shahin Alam",
+    "jobTitle": "Junior Software Engineer",
+    "url": "https://shahinalam-dev.github.io",
+    "email": "mshahinalam01@gmail.com",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Dhaka",
+      "addressCountry": "BD"
+    },
+    "sameAs": [
+      "https://github.com/shahinalam-dev",
+      "https://www.linkedin.com/in/shahinalamdev/"
+    ]
+  }
+  </script>
+</head>
+
+<body>
+
+  <!-- ══════════════════════════════════
+       PRELOADER
+  ══════════════════════════════════ -->
+  <!-- ========== PRELOADER HTML ========== -->
+  <div id="preloader">
+    <div class="pre-bg-grid"></div>
+
+    <div class="pre-inner">
+      <!-- Logo -->
+      <div class="pre-logo">
+        <span class="pre-bracket">&lt;</span>SA<span class="pre-bracket">/&gt;</span>
+        <span class="pre-cursor">_</span>
+      </div>
+
+      <!-- Terminal log lines -->
+      <div class="pre-terminal" id="pre-terminal"></div>
+
+      <!-- Progress bar -->
+      <div class="pre-bar-wrap">
+        <div class="pre-bar-track">
+          <div class="pre-bar-fill" id="pre-bar-fill"></div>
+          <div class="pre-bar-glow" id="pre-bar-glow"></div>
+        </div>
+        <span class="pre-pct" id="pre-pct">0%</span>
+      </div>
+
+      <!-- Status text -->
+      <div class="pre-status" id="pre-status">Initializing...</div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════
+       UI CHROME (cursor, progress, canvas)
+  ══════════════════════════════════ -->
+  <div id="cursor-dot" aria-hidden="true"></div>
+  <div id="cursor-ring" aria-hidden="true"></div>
+  <div id="scroll-bar" aria-hidden="true"></div>
+  <canvas id="matrix-canvas" aria-hidden="true"></canvas>
+
+  <!-- ══════════════════════════════════
+       NAVIGATION
+  ══════════════════════════════════ -->
+  <nav id="navbar">
+    <div class="nav-inner">
+
+      <a href="#hero" class="nav-logo">
+        <span class="logo-mono">SA</span>
+        <span class="logo-word">shahinalam<span class="c">dev</span><span class="logo-tag"></span></span>
+      </a>
+
+      <!-- Desktop links -->
+      <ul class="nav-links" id="nav-links">
+        <li><a href="#about" class="nav-link" data-sec="about">About</a></li>
+        <li><a href="#skills" class="nav-link" data-sec="skills">Skills</a></li>
+        <li><a href="#projects" class="nav-link" data-sec="projects">Projects</a></li>
+        <li><a href="#experience" class="nav-link" data-sec="experience">Experience</a></li>
+        <li><a href="#contact" class="nav-link" data-sec="contact">Contact</a></li>
+        <li>
+          <a href="https://drive.google.com/uc?export=download&id=1e-uwMZ0R8gb5hT9TthOa2jjuihyy3IFb" class="btn-resume"
+            target="_blank" rel="noopener">
+            Resume ↗
+          </a>
+        </li>
+      </ul>
+
+      <!-- Mobile hamburger -->
+      <button id="hamburger" class="hamburger" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+
+    <!-- Mobile menu -->
+    <div id="mobile-menu" class="mobile-menu">
+      <a href="#about" class="mobile-link">About</a>
+      <a href="#skills" class="mobile-link">Skills</a>
+      <a href="#projects" class="mobile-link">Projects</a>
+      <a href="#experience" class="mobile-link">Experience</a>
+      <a href="#contact" class="mobile-link">Contact</a>
+      <a href="https://drive.google.com/uc?export=download&id=1e-uwMZ0R8gb5hT9TthOa2jjuihyy3IFb" class="btn-resume"
+        target="_blank" rel="noopener" style="width:fit-content">
+        Resume ↗
+      </a>
+    </div>
+  </nav>
+
+  <!-- ══════════════════════════════════
+       HERO
+  ══════════════════════════════════ -->
+  <section id="hero">
+    <!-- Ambient glows -->
+    <div class="glow glow-green" aria-hidden="true"></div>
+    <div class="glow glow-cyan" aria-hidden="true"></div>
+
+    <div class="hero-wrap">
+
+      <!-- ─── Left: Copy ─── -->
+      <div class="hero-copy"><br>
+
+        <div class="terminal-pill reveal">
+          <span class="prompt">$</span>
+          <span id="typing-text" class="typing-cursor"></span>
+        </div>
+
+        <p class="eyebrow reveal">// Hello World. I am —</p>
+
+        <h1 class="hero-name glitch reveal" data-text="Shahin Alam">Shahin Alam</h1>
+
+        <p class="hero-role reveal">
+          Full-Stack Engineer
+          <span class="pipe">|</span>
+          <span class="c">Laravel Specialist</span>
+          <span class="pipe">|</span>
+          API Architect
+        </p>
+
+        <p class="hero-desc reveal">
+          Focusing on <span class="g">production-ready</span> robust web applications and efficient database management
+          with <span class="g"> PHP, Laravel, SQL and Modern JavaScript. </span> Based in <span class="c">Dhaka,
+            Bangladesh</span>.
+        </p>
+
+        <div class="hero-btns reveal">
+          <a href="#projects" class="btn-primary magnetic">View Projects →</a>
+          <a href="#contact" class="btn-secondary magnetic">Let's Talk</a>
+        </div>
+
+        <div class="hero-stats reveal">
+          <div class="stat">
+            <span class="stat-n" data-target="10">0</span><span class="g">+</span>
+            <span class="stat-l">Projects Built</span>
+          </div>
+          <div class="stat-div"></div>
+
+          <div class="stat">
+            <span class="stat-n" data-target="8">0</span><span class="g">+</span>
+            <span class="stat-l">Months Prof. Exp</span>
+          </div>
+          <div class="stat-div"></div>
+
+          <div class="stat">
+            <span class="stat-n" data-target="100">0</span><span class="g">%</span>
+            <span class="stat-l">Dedication to Quality</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- ─── Right: Orbit Visual ─── -->
+      <div class="hero-visual reveal" aria-hidden="true">
+        <div class="orbit-root">
+
+          <!-- Center card -->
+          <div class="orbit-center">
+            <div class="orbit-code">
+              <span class="kw">class</span> <span class="cls">Shahin</span> {<br />
+              &nbsp;&nbsp;<span class="g">Tech</span>: <span class="c">Full-Stack</span><br />
+              &nbsp;&nbsp;<span class="g">status</span>: <span style="color:#febc2e">'open'</span><br />
+              }
+            </div>
+          </div>
+
+          <!-- Orbit rings & tags are injected by JS (initOrbit) -->
+
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Scroll hint -->
+    <div class="scroll-hint" aria-hidden="true">
+      <span>scroll</span>
+      <div class="scroll-line"></div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════
+       ABOUT
+  ══════════════════════════════════ -->
+  <section id="about">
+    <div class="sec-wrap">
+
+      <div class="about-grid">
+
+        <!-- Bio -->
+        <div class="about-text">
+          <p class="eyebrow reveal">// 01. about_me</p>
+          <h2 class="sec-title reveal">Who I Am</h2>
+
+          <p class="body-text reveal">
+            I'm a <span class="g">Full-Stack Software Engineer</span> with hands-on
+            experience building <span class="g">real-world web applications</span>.
+            I work primarily with the <span class="c">Laravel ecosystem</span>, with
+            a focus on clean architecture, maintainable code, and practical solutions
+            to real business problems.
+          </p>
+
+          <p class="body-text reveal">
+            In production projects, I've built and maintained
+            <span class="g">REST APIs and data-driven backend systems</span> —
+            handling complex business logic, optimizing database queries with
+            <span class="c">MySQL</span>, and collaborating on full-stack features
+            using <span class="c">Vue.js</span>.
+          </p>
+
+          <p class="body-text reveal">
+            I actively expand my backend depth through
+            <span class="c">Queues, Jobs, Events, and system design</span> —
+            applying these concepts directly in the projects I work on,
+            not just in theory.
+          </p>
+
+          <a href="https://drive.google.com/uc?export=download&id=1e-uwMZ0R8gb5hT9TthOa2jjuihyy3IFb"
+            class="btn-primary magnetic reveal" target="_blank" rel="noopener"
+            style="display:inline-flex;margin-top:8px;">
+            Download Resume ↓
+          </a>
+        </div>
+
+        <!-- Code card -->
+        <div class="code-card reveal"
+          style="transition-delay:.2s;font-family:var(--font-mono, monospace);max-width:560px;border-radius:12px;overflow:hidden;border:1px solid #2a2d3e">
+
+          <!-- bar -->
+          <div
+            style="background:#1a1d2e;padding:10px 14px;display:flex;align-items:center;gap:8px;border-bottom:1px solid #2a2d3e">
+            <div style="display:flex;gap:6px">
+              <span style="width:12px;height:12px;border-radius:50%;background:#ff5f56;display:inline-block"></span>
+              <span style="width:12px;height:12px;border-radius:50%;background:#ffbd2e;display:inline-block"></span>
+              <span style="width:12px;height:12px;border-radius:50%;background:#27c93f;display:inline-block"></span>
+            </div>
+            <span
+              style="margin-left:8px;font-size:12px;color:#e2c4ff;background:#0e1120;padding:4px 12px;border-radius:6px 6px 0 0;border:1px solid #2a2d3e;border-bottom:none">about.php</span>
+          </div>
+
+          <!-- body -->
+          <div style="background:#0e1120;padding:20px 22px;overflow-x:auto">
+            <pre style="margin:0;font-size:13px;line-height:1.75;color:#c9d1d9"><span style="color:#546e7a;font-style:italic">// ShahinAlam &lt;shahinalam@dev&gt; · Dhaka, BD</span>
+<span style="color:#c792ea">class</span> <span style="color:#ffcb6b">ShahinAlam</span> <span style="color:#c792ea">extends</span> <span style="color:#ffcb6b">Engineer</span>
+<span style="color:#89ddff">{</span>
+    <span style="color:#c792ea">protected</span> <span style="color:#89ddff">string</span> <span style="color:#82aaff">$role</span>     <span style="color:#89ddff">=</span> <span style="color:#c3e88d">'Full-Stack Software Engineer'</span><span style="color:#89ddff">;</span>
+    <span style="color:#c792ea">protected</span> <span style="color:#89ddff">string</span> <span style="color:#82aaff">$location</span> <span style="color:#89ddff">=</span> <span style="color:#c3e88d">'Dhaka, Bangladesh'</span><span style="color:#89ddff">;</span>
+    <span style="color:#c792ea">protected</span> <span style="color:#89ddff">bool</span> <span style="color:#82aaff">$openToWork</span> <span style="color:#89ddff">=</span> <span style="color:#ff9cac">true</span><span style="color:#89ddff">;</span>
+
+    <span style="color:#c792ea">public</span> <span style="color:#89ddff">array</span> <span style="color:#82aaff">$stack</span> <span style="color:#89ddff">=</span> <span style="color:#89ddff">[</span>
+        <span style="color:#c3e88d">'PHP'</span><span style="color:#89ddff">,</span> <span style="color:#c3e88d">'Laravel'</span><span style="color:#89ddff">,</span>  <span style="color:#c3e88d">'MySQL'</span><span style="color:#89ddff">,</span> <span style="color:#c3e88d">'JavaScript'</span><span style="color:#89ddff">,</span> <span style="color:#c3e88d">'Vue.js'</span><span style="color:#89ddff">,</span>
+        <span style="color:#c3e88d">'REST API'</span><span style="color:#89ddff">,</span>  <span style="color:#c3e88d">'Postman'</span><span style="color:#89ddff">,</span> <span style="color:#c3e88d">'Git'</span><span style="color:#89ddff"></span>
+    <span style="color:#89ddff">];</span>
+
+    <span style="color:#c792ea">public function</span> <span style="color:#f07178">focus</span><span style="color:#89ddff">():</span> <span style="color:#89ddff">string</span>
+    <span style="color:#89ddff">{</span>
+        <span style="color:#c792ea">return</span> <span style="color:#c3e88d">'APIs, Queues &amp; Event-Driven Architecture'</span><span style="color:#89ddff">;</span>
+    <span style="color:#89ddff">}</span>
+<span style="color:#89ddff">}</span></pre>
+          </div>
+          <!-- footer -->
+          <div
+            style="background:#1a1d2e;padding:6px 14px;display:flex;gap:10px;align-items:center;border-top:1px solid #2a2d3e">
+            <span
+              style="font-size:11px;padding:2px 8px;border-radius:4px;background:#7c3aed22;color:#c792ea;border:1px solid #c792ea44;font-family:monospace">PHP
+              8.2</span>
+            <div style="margin-left:auto;display:flex;align-items:center;gap:6px">
+              <span
+                style="width:8px;height:8px;border-radius:50%;background:#27c93f;display:inline-block;animation:blink 2s infinite"></span>
+              <span style="font-size:11px;color:#546e7a;font-family:monospace">open to work</span>
+            </div>
+          </div>
+        </div>
+
+
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════
+      SKILLS
+  ══════════════════════════════════ -->
+  <section id="skills" class="alt-bg">
+    <div class="sec-wrap">
+
+      <div class="sec-header reveal">
+        <p class="eyebrow">// 02. skills</p>
+        <h2 class="sec-title">Tech Arsenal</h2>
+      </div>
+
+      <!-- ── Category Cards ── -->
+      <div class="sk-categories reveal">
+
+        <div class="sk-cat-card">
+          <div class="sk-cat-header">
+            <div class="sk-cat-icon">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <polyline points="16 18 22 12 16 6" />
+                <polyline points="8 6 2 12 8 18" />
+              </svg>
+            </div>
+            <div>
+              <p class="sk-cat-label">// backend</p>
+              <h3 class="sk-cat-title">Server & API</h3>
+            </div>
+          </div>
+          <div class="sk-cat-divider"></div>
+          <div class="sk-cat-tags">
+            <span class="sk-tag primary">PHP</span>
+            <span class="sk-tag primary">Laravel</span>
+            <span class="sk-tag primary">REST API</span>
+            <span class="sk-tag primary">Queues</span>
+            <span class="sk-tag primary">Jobs</span>
+            <span class="sk-tag primary">Middleware</span>
+            <span class="sk-tag primary">Authentication</span>
+            <span class="sk-tag primary">Events & Listeners</span>
+            <span class="sk-tag primary">Cron Jobs</span>
+          </div>
+        </div>
+
+        <div class="sk-cat-card">
+          <div class="sk-cat-header">
+            <div class="sk-cat-icon">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <ellipse cx="12" cy="5" rx="9" ry="3" />
+                <path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3" />
+                <path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5" />
+              </svg>
+            </div>
+            <div>
+              <p class="sk-cat-label">// database</p>
+              <h3 class="sk-cat-title">Data Layer</h3>
+            </div>
+          </div>
+          <div class="sk-cat-divider"></div>
+          <div class="sk-cat-tags">
+            <span class="sk-tag primary">MySQL</span>
+            <span class="sk-tag primary">Eloquent ORM</span>
+            <span class="sk-tag primary">Indexing</span>
+            <span class="sk-tag primary">Quiry Builder</span>
+            <span class="sk-tag primary">Query Optimization</span>
+            <span class="sk-tag primary">Migrations</span>
+            <span class="sk-tag primary">Relationships</span>
+          </div>
+        </div>
+
+        <div class="sk-cat-card">
+          <div class="sk-cat-header">
+            <div class="sk-cat-icon">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <rect x="2" y="3" width="20" height="14" rx="2" />
+                <path d="M8 21h8M12 17v4" />
+              </svg>
+            </div>
+            <div>
+              <p class="sk-cat-label">// frontend</p>
+              <h3 class="sk-cat-title">UI Integration</h3>
+            </div>
+          </div>
+          <div class="sk-cat-divider"></div>
+          <div class="sk-cat-tags">
+            <span class="sk-tag primary">JavaScript</span>
+            <span class="sk-tag primary">HTML5</span>
+            <span class="sk-tag primary">CSS3</span>
+            <span class="sk-tag primary">Bootstrap</span>
+            <span class="sk-tag primary">Blade Templates</span>
+          </div>
+        </div>
+
+        <div class="sk-cat-card">
+          <div class="sk-cat-header">
+            <div class="sk-cat-icon">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <circle cx="12" cy="12" r="3" />
+                <path
+                  d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83" />
+              </svg>
+            </div>
+            <div>
+              <p class="sk-cat-label">// tools</p>
+              <h3 class="sk-cat-title">Dev Workflow</h3>
+            </div>
+          </div>
+          <div class="sk-cat-divider"></div>
+          <div class="sk-cat-tags">
+            <span class="sk-tag primary">Git & GitHub</span>
+            <span class="sk-tag primary">Postman</span>
+            <span class="sk-tag primary">VS Code</span>
+            <span class="sk-tag primary">Linux CLI</span>
+            <span class="sk-tag primary">Composer</span>
+            <span class="sk-tag primary">NPM</span>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- ── Currently Leveling Up — Full Width ── -->
+      <div class="sk-leveling reveal" style="transition-delay:.15s">
+
+        <div class="sk-lv-header">
+          <p class="sk-lv-eyebrow">// currently leveling up</p>
+          <p class="sk-lv-sub">Actively building deeper expertise in modern backend engineering.</p>
+        </div>
+
+        <div class="sk-lv-grid">
+
+          <div class="sk-lv-card">
+            <div class="sk-lv-top">
+              <div class="sk-lv-icon-wrap"
+                style="--icon-color: rgba(0,255,157,.12); --icon-border: rgba(0,255,157,.2);">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="1.5">
+                  <circle cx="12" cy="12" r="10" />
+                  <path d="M12 8v4l3 3" />
+                </svg>
+              </div>
+              <span class="sk-lv-badge green">In Progress</span>
+            </div>
+            <h4 class="sk-lv-name">System Design</h4>
+            <p class="sk-lv-desc">Learning core concepts like caching strategies,database scaling, and API design
+              patterns to write more thoughtful, scalable code.</p>
+            <div class="sk-lv-topics">
+              <span>Caching</span><span>Load Balancing</span><span>Microservices</span>
+            </div>
+          </div>
+
+          <div class="sk-lv-card">
+            <div class="sk-lv-top">
+              <div class="sk-lv-icon-wrap"
+                style="--icon-color: rgba(0,255,157,.12); --icon-border: rgba(0,255,157,.2);">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="1.5">
+                  <ellipse cx="12" cy="12" rx="3" ry="3" />
+                  <path
+                    d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83" />
+                  </ellipse>
+                </svg>
+              </div>
+              <span class="sk-lv-badge green">In Progress</span>
+            </div>
+            <h4 class="sk-lv-name">Redis</h4>
+            <p class="sk-lv-desc">Integrating Redis as a cache and queue driver in Laravel apps for faster response
+              times and efficient background job processing.</p>
+            <div class="sk-lv-topics">
+              <span>Cache Driver</span><span>Queue Backend</span><span>Session Store</span>
+            </div>
+          </div>
+
+          <div class="sk-lv-card">
+            <div class="sk-lv-top">
+              <div class="sk-lv-icon-wrap" style="--icon-color: rgba(0,212,255,.1); --icon-border: rgba(0,212,255,.2);">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--cyan)" stroke-width="1.5">
+                  <rect x="2" y="7" width="20" height="14" rx="2" />
+                  <path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2" />
+                  <line x1="12" y1="12" x2="12" y2="16" />
+                  <line x1="10" y1="14" x2="14" y2="14" />
+                </svg>
+              </div>
+              <span class="sk-lv-badge cyan">Exploring</span>
+            </div>
+            <h4 class="sk-lv-name">Docker</h4>
+            <p class="sk-lv-desc">Setting up local development environments with Docker Compose to ensure consistent,
+              reproducible project setups across machines.</p>
+            <div class="sk-lv-topics">
+              <span>Containers</span><span>Docker Compose</span><span>Dev Env</span>
+            </div>
+          </div>
+
+          <div class="sk-lv-card">
+            <div class="sk-lv-top">
+              <div class="sk-lv-icon-wrap" style="--icon-color: rgba(0,212,255,.1); --icon-border: rgba(0,212,255,.2);">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--cyan)" stroke-width="1.5">
+                  <path d="M9 11l3 3L22 4" />
+                  <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11" />
+                </svg>
+              </div>
+              <span class="sk-lv-badge cyan">Exploring</span>
+            </div>
+            <h4 class="sk-lv-name">PHPUnit Testing</h4>
+            <p class="sk-lv-desc">Writing feature and unit tests in Laravel using PHPUnit to catch bugs early and build
+              more reliable applications.</p>
+            <div class="sk-lv-topics">
+              <span>Unit Tests</span><span>Feature Tests</span><span>TDD</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════
+       PROJECTS
+  ══════════════════════════════════ -->
+  <section id="projects" class="alt-bg">
+    <div class="sec-wrap">
+
+      <!-- ============================= -->
+      <!-- 🔥 Professional Experience -->
+      <!-- ============================= -->
+      <div class="sec-header reveal">
+        <p class="eyebrow">// Professional Work</p>
+        <h2 class="sec-title">Professional Experience</h2>
+      </div>
+
+      <div class="projects-grid">
+
+        <!-- 1 -->
+        <div class="proj-card reveal tilt-card">
+          <div class="proj-header">
+            <span class="proj-type green">STDMS</span>
+            <span class="proj-icon">🔗</span>
+          </div>
+          <h3 class="proj-name">
+            Short Term Deployment System
+            <span class="badge badge-soft">Team Contribution</span>
+          </h3>
+          <p class="proj-desc">
+            Contributed to full-stack development of a government project, working within a team to build and integrate
+            multiple functional modules.
+          </p>
+          <div class="proj-tags">
+            <span class="tag-xs">PHP</span>
+            <span class="tag-xs">Laravel</span>
+            <span class="tag-xs">MySQL</span>
+            <span class="tag-xs">JavaScript</span>
+            <span class="tag-xs">AJAX</span>
+            <span class="tag-xs">Role wise Authentication</span>
+            <span class="tag-xs">ApexCharts</span>
+            <span class="tag-xs">REST API</span>
+            <span class="tag-xs">Queue & Jobs</span>
+          </div>
+        </div>
+
+        <!-- 2 -->
+        <div class="proj-card reveal tilt-card">
+          <div class="proj-header">
+            <span class="proj-type blue">TRGMS</span>
+            <span class="proj-icon">🎓</span>
+          </div>
+          <h3 class="proj-name">
+            Training Management System
+            <span class="badge badge-soft">Team Contribution</span>
+          </h3>
+          <p class="proj-desc">
+            Built training management workflows, scheduling features, and participant handling with secure role-based
+            access control for the TRGMS system.
+          </p>
+          <div class="proj-tags">
+            <span class="tag-xs">PHP</span>
+            <span class="tag-xs">Laravel</span>
+            <span class="tag-xs">MySQL</span>
+            <span class="tag-xs">Blade</span>
+            <span class="tag-xs">JavaScript</span>
+            <span class="tag-xs">AJAX</span>
+            <span class="tag-xs">REST API</span>
+            <span class="tag-xs">Middleware</span>
+            <span class="tag-xs">Eloquent Scopes</span>
+            <span class="tag-xs">Role wise Authentication</span>
+          </div>
+        </div>
+
+        <!-- 3 -->
+        <div class="proj-card reveal tilt-card">
+          <div class="proj-header">
+            <span class="proj-type yellow">AVMIS</span>
+            <span class="proj-icon">⚙️</span>
+          </div>
+          <h3 class="proj-name">
+            Ansar VDP Management Information System
+            <span class="badge badge-soft">Team Contribution</span>
+          </h3>
+          <p class="proj-desc">
+            Developed and optimized REST APIs and reporting modules for the AVMIS system, ensuring efficient data
+            retrieval and seamless frontend integration.
+          </p>
+          <div class="proj-tags">
+            <span class="tag-xs">PHP</span>
+            <span class="tag-xs">Laravel</span>
+            <span class="tag-xs">MySQL</span>
+            <span class="tag-xs">JavaScript</span>
+            <span class="tag-xs">Rest API</span>
+            <span class="tag-xs">Middleware</span>
+            <span class="tag-xs">Role wise Authentication</span>
+            <span class="tag-xs">AJAX</span>
+            <span class="tag-xs">Eloquent Scopes</span>
+            <span class="tag-xs">Queue & Jobs</span>
+          </div>
+        </div>
+
+      </div>
+
+
+      <!-- ============================= -->
+      <!-- 💡 Personal Projects -->
+      <!-- ============================= -->
+      <div class="sec-header reveal" style="margin-top:60px;">
+        <p class="eyebrow">// Side Projects</p>
+        <h2 class="sec-title">Personal Projects</h2>
+      </div>
+
+      <div class="projects-grid">
+
+        <!-- Car Rental -->
+        <div class="proj-card reveal tilt-card">
+          <div class="proj-header">
+            <span class="proj-type green">Web App</span>
+            <span class="proj-icon">🚗</span>
+          </div>
+          <h3 class="proj-name">Car Rental Management</h3>
+          <p class="proj-desc">
+            Full-featured rental system with booking, fleet management, invoicing, and admin dashboard.
+          </p>
+          <div class="proj-tags">
+            <span class="tag-xs">Laravel</span>
+            <span class="tag-xs">PHP</span>
+            <span class="tag-xs">MySQL</span>
+            <span class="tag-xs">Eloquent/Quiry Builder</span>
+            <span class="tag-xs">REST API</span>
+            <span class="tag-xs">Authentication</span>
+            <span class="tag-xs">JavaScript</span>
+            <span class="tag-xs">jQuery</span>
+          </div>
+          <div class="proj-links">
+            <a href="https://github.com/shahinalam-dev/rent-a-ride-project" target="_blank" class="proj-link">GitHub
+              →</a>
+          </div>
+        </div>
+
+        <!-- Inventory -->
+        <div class="proj-card reveal tilt-card">
+          <div class="proj-header">
+            <span class="proj-type red">EduTech</span>
+            <span class="proj-icon">📚</span>
+          </div>
+          <h3 class="proj-name">Online Course Management System</h3>
+          <p class="proj-desc">
+            Role-based Online Course Management System for managing courses, users, and enrollments with admin and
+            student modules.
+          </p>
+          <div class="proj-tags">
+            <span class="tag-xs">PHP</span>
+            <span class="tag-xs">Laravel</span>
+            <span class="tag-xs">MySQL</span>
+            <span class="tag-xs">Eloquent/Quiry Builder</span>
+            <span class="tag-xs">REST API</span>
+            <span class="tag-xs">Authentication</span>
+            <span class="tag-xs">JavaScript</span>
+            <span class="tag-xs">jQuery</span>
+          </div>
+          <div class="proj-links">
+            <a href="https://github.com/shahinalam-dev/online-course-management-system" target="_blank"
+              class="proj-link">GitHub →</a>
+          </div>
+        </div>
+
+        <!-- freelance flow project -->
+        <div class="proj-card reveal tilt-card">
+          <div class="proj-header">
+            <span class="proj-type blue">Web App</span>
+            <span class="proj-icon">💼</span>
+          </div>
+          <h3 class="proj-name">FreelanceFlow-CRM</h3>
+          <p class="proj-desc">
+            Freelance CRM for managing clients, projects, invoices, and freelancer workflow in one system.
+          </p>
+          <div class="proj-tags">
+            <span class="tag-xs">Laravel</span>
+            <span class="tag-xs">PHP</span>
+            <span class="tag-xs">MySQL</span>
+            <span class="tag-xs">Eloquent/Quiry Builder</span>
+            <span class="tag-xs">REST API</span>
+            <span class="tag-xs">Authentication</span>
+            <span class="tag-xs">JavaScript</span>
+            <span class="tag-xs">jQuery</span>
+          </div>
+          <div class="proj-links">
+            <a href="https://github.com/shahinalam-dev/FreelanceFlow-CRM" target="_blank" class="proj-link">GitHub →</a>
+          </div>
+        </div>
+
+        <!-- Quizify -->
+        <div class="proj-card reveal tilt-card">
+          <div class="proj-header">
+            <span class="proj-type red">EduTech</span>
+            <span class="proj-icon">📖</span>
+          </div>
+          <h3 class="proj-name">Quizify</h3>
+          <p class="proj-desc">
+            Quizify is an interactive quiz system built with Laravel, featuring real-time scoring, timed exams,&
+            AJAX-driven user experience.
+          </p>
+          <div class="proj-tags">
+            <span class="tag-xs">Laravel</span>
+            <span class="tag-xs">PHP</span>
+            <span class="tag-xs">MySQL</span>
+            <span class="tag-xs">Eloquent/Quiry Builder</span>
+            <span class="tag-xs">Authentication</span>
+            <span class="tag-xs">REST API</span>
+            <span class="tag-xs">JavaScript</span>
+            <span class="tag-xs">jQuery</span>
+          </div>
+          <div class="proj-links">
+            <a href="https://github.com/shahinalam-dev/Quizify" target="_blank" class="proj-link">GitHub →</a>
+          </div>
+        </div>
+
+        <!-- Quizify -->
+        <div class="proj-card reveal tilt-card">
+          <div class="proj-header">
+            <span class="proj-type blue">Web App</span>
+            <span class="proj-icon">🗳️</span>
+          </div>
+          <h3 class="proj-name">Electra-Link_E-voting-system</h3>
+          <p class="proj-desc">
+            Is an online voting system built for secure, transparent, digital elections with user authentication and
+            real-time results.
+          </p>
+          <div class="proj-tags">
+            <span class="tag-xs">Laravel</span>
+            <span class="tag-xs">PHP</span>
+            <span class="tag-xs">MySQL</span>
+            <span class="tag-xs">Eloquent/Quiry Builder</span>
+            <span class="tag-xs">Authentication</span>
+            <span class="tag-xs">REST API</span>
+            <span class="tag-xs">JavaScript</span>
+            <span class="tag-xs">jQuery</span>
+          </div>
+          <div class="proj-links">
+            <a href="https://github.com/shahinalam-dev/Electra-Link_E-voting-system" target="_blank"
+              class="proj-link">GitHub →</a>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════
+     EXPERIENCE
+══════════════════════════════════ -->
+  <section id="experience" class="alt-bg">
+    <div class="sec-wrap">
+
+      <div class="sec-header reveal">
+        <p class="eyebrow">// 04. experience</p>
+        <h2 class="sec-title">Journey</h2>
+      </div>
+
+      <div class="exp-grid">
+
+        <!-- Work -->
+        <div class="exp-col reveal">
+          <h3 class="sub-title">Work Experience</h3>
+
+          <div class="timeline">
+
+            <div class="timeline-item">
+              <div class="tl-dot"></div>
+              <div class="tl-body">
+                <span class="tl-date">September 2025 — Present</span>
+                <h4 class="tl-role">Junior Software Engineer</h4>
+                <span class="tl-co">Swapnoloke</span>
+                <p class="tl-desc">
+                  Building and maintaining production-grade web applications using Laravel,
+                  with focus on REST API development, backend module design, and
+                  event-driven processes including queues and jobs.
+                </p>
+              </div>
+            </div>
+
+            <div class="timeline-item">
+              <div class="tl-dot"></div>
+              <div class="tl-body">
+                <span class="tl-date">September 2021 — August 2025</span>
+                <h4 class="tl-role">Software Implementation & Support Officer</h4>
+                <span class="tl-co">Desh Universal Pvt. Ltd.</span>
+                <p class="tl-desc">
+                  Deployed and supported enterprise software systems across multiple
+                  client environments, handling production issue resolution, system
+                  configuration, and coordination with development teams to ensure
+                  stable and reliable operations.
+                </p>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Education -->
+        <div class="exp-col reveal" style="transition-delay:.2s">
+          <h3 class="sub-title">Education & Certifications</h3>
+
+          <div class="timeline">
+
+            <div class="timeline-item">
+              <div class="tl-dot cyan"></div>
+              <div class="tl-body">
+                <span class="tl-date">B.Sc in Engineering</span>
+                <h4 class="tl-role">Daffodil International University</h4>
+                <span class="tl-co">Computer Science & Engineering</span>
+              </div>
+            </div>
+
+            <div class="timeline-item">
+              <div class="tl-dot cyan"></div>
+              <div class="tl-body">
+                <span class="tl-date">BASIS Institute of Technology & Management (BITM)</span>
+                <h4 class="tl-role">PHP with Laravel Framework</h4>
+                <span class="tl-co">
+                  3 months · OOP principles, Laravel MVC, REST APIs,
+                  MySQL database design, AJAX-based dynamic applications
+                </span>
+              </div>
+            </div>
+
+            <div class="timeline-item">
+              <div class="tl-dot cyan"></div>
+              <div class="tl-body">
+                <span class="tl-date">Ostad</span>
+                <h4 class="tl-role">Web Design & Development</h4>
+                <span class="tl-co">
+                  6 months · Full-stack web development fundamentals,
+                  HTML/CSS, JavaScript, PHP, Laravel basics, and project-based learning
+                </span>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+  <!-- ══════════════════════════════════
+       CONTACT
+  ══════════════════════════════════ -->
+  <section id="contact">
+    <div class="sec-wrap">
+      <div class="contact-wrap">
+
+        <div class="contact-left reveal">
+          <p class="eyebrow">// 05. contact</p>
+          <h2 class="sec-title">Let's Build Something</h2>
+          <p class="body-text" style="max-width:420px">
+            Open to <span class="g">new opportunities</span>, freelance projects,
+            and collaboration. Currently employed and
+            <span class="g">open to exciting offers.</span>
+          </p>
+        </div>
+
+        <div class="contact-card code-card reveal" style="transition-delay:.15s">
+          <div class="code-bar">
+            <span class="dot red"></span>
+            <span class="dot yellow"></span>
+            <span class="dot gdot"></span>
+            <span class="filename">contact.sh</span>
+          </div>
+          <div class="contact-rows">
+
+            <a href="mailto:mshahinalam01@gmail.com" class="c-row">
+              <span class="c-prompt">$</span>
+              <span class="c-key">mail →</span>
+              <span class="c-val">mshahinalam01@gmail.com</span>
+              <span class="c-arrow">↗</span>
+            </a>
+
+            <a href="tel:+8801723095418" class="c-row">
+              <span class="c-prompt">$</span>
+              <span class="c-key">call →</span>
+              <span class="c-val">+880 1723 095418</span>
+              <span class="c-arrow">↗</span>
+            </a>
+
+            <a href="https://www.linkedin.com/in/shahinalamdev/" target="_blank" rel="noopener" class="c-row">
+              <span class="c-prompt">$</span>
+              <span class="c-key">linkedin →</span>
+              <span class="c-val">linkedin.com/in/shahinalamdev/</span>
+              <span class="c-arrow">↗</span>
+            </a>
+
+            <a href="https://github.com/shahinalam-dev" target="_blank" rel="noopener" class="c-row">
+              <span class="c-prompt">$</span>
+              <span class="c-key">github →</span>
+              <span class="c-val">github.com/shahinalam-dev</span>
+              <span class="c-arrow">↗</span>
+            </a>
+
+            <div class="c-row plain">
+              <span class="c-prompt">$</span>
+              <span class="c-key">location →</span>
+              <span class="c-val muted">Mirpur-10, Dhaka, Bangladesh</span>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════
+       FOOTER
+  ══════════════════════════════════ -->
+  <footer>
+    <p>
+      <span class="g">&lt;</span>
+      Designed &amp; Built by <a href="https://github.com/shahinalam-dev" target="_blank" class="c">Shahin Alam</a>
+      <span class="g">/&gt;</span>
+      &nbsp;—&nbsp;&copy; 2026
+    </p>
+  </footer>
+
+  <!-- Back to top -->
+  <button id="back-top" aria-label="Back to top">↑</button>
+
+  <!-- Script -->
+  <script src="/main.js"></script>
+</body>
+
+</html>
