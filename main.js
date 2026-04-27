@@ -16,7 +16,7 @@ const DATA = {
 
   /* Typing messages in hero terminal */
   typing: [
-    'Full-Stack Software Engineer...',
+    'Full-Stack Developer...',
     'Building Robust REST APIs...',
     'Clean Code & Best Practices Advocate...',
     'Passionate Problem Solver...',
