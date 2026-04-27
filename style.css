@@ -1025,17 +1025,7 @@ section {
   left: 50%;
   transform: translate(-50%, -50%);
   width: 150px;
-  background: rgba(0, 0, 0, .7);
-  border: 1px solid var(--border);
-  border-radius: 10px;
-  padding: 16px;
   z-index: 4;
-}
-
-.orbit-code {
-  font-size: .65rem;
-  line-height: 1.9;
-  color: var(--text);
 }
 
 /* Orbit rings — visual decoration only, tags positioned by JS */
@@ -1086,6 +1076,181 @@ section {
   background: rgba(0, 212, 255, .2);
   box-shadow: 0 0 10px rgba(0, 212, 255, .3);
 }
+
+/* ─────────────────────────────────────
+   PHOTO FRAME
+───────────────────────────────────── */
+
+.photo-frame-sm {
+  position: relative;
+  width: 150px;
+  height: 160px;
+  isolation: isolate;
+}
+
+/* ── Outer ambient halo ── */
+.photo-frame-sm::after {
+  content: '';
+  position: absolute;
+  inset: -12px;
+  border-radius: 24px;
+  background: radial-gradient(
+    ellipse 90% 70% at 50% 55%,
+    rgba(0, 255, 157, .12),
+    rgba(0, 212, 255, .06) 50%,
+    transparent 75%
+  );
+  z-index: 0;
+  animation: frame-halo 4s ease-in-out infinite alternate;
+}
+
+@keyframes frame-halo {
+  from { opacity: .5; }
+  to   { opacity: 1;  }
+}
+
+/* ── Animated gradient border ── */
+.photo-frame-sm::before {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  border-radius: 14px;
+  /* cut corner matches the image below */
+  clip-path: polygon(0 0, calc(100% - 20px) 0, 100% 20px, 100% 100%, 0 100%);
+  background: linear-gradient(
+    145deg,
+    var(--green)           0%,
+    rgba(0,255,157,.20)   40%,
+    rgba(0,212,255,.18)   60%,
+    var(--cyan)           100%
+  );
+  background-size: 250% 250%;
+  animation: border-shift 3.5s ease-in-out infinite alternate;
+  z-index: 1;
+}
+
+@keyframes border-shift {
+  from { background-position:   0%   0%; opacity: .75; }
+  to   { background-position: 100% 100%; opacity:  1;  }
+}
+
+/* ── Image ── */
+.pf-img {
+  position: absolute;
+  top: 0; left: 0;
+  width: 150px;
+  height: 160px;
+  object-fit: cover;
+  object-position: top center;
+  border-radius: 12px;
+  display: block;
+  /* top-right cut corner — asymmetric tech look */
+  clip-path: polygon(0 0, calc(100% - 18px) 0, 100% 18px, 100% 100%, 0 100%);
+  filter: grayscale(20%) contrast(1.07) brightness(.94);
+  transition: filter .5s, transform .4s;
+  z-index: 2;
+}
+
+.photo-frame-sm:hover .pf-img {
+  filter: grayscale(0%) contrast(1.1) brightness(1.02);
+  transform: scale(1.025);
+}
+
+/* ── Corner brackets ── */
+.pf-corner {
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  z-index: 5;
+}
+
+/* TL — green + blinking live dot */
+.pf-corner.tl {
+  top: -5px; left: -5px;
+  border-top:  2px solid var(--green);
+  border-left: 2px solid var(--green);
+  border-radius: 3px 0 0 0;
+}
+.pf-corner.tl::after {
+  content: '';
+  position: absolute;
+  top: 3px;
+  left: 20px;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--green);
+  box-shadow: 0 0 8px var(--green);
+  animation: blink 2.4s ease-in-out infinite; /* reuses existing blink keyframe */
+}
+
+/* TR — diagonal accent bar on the cut corner */
+.pf-corner.tr {
+  top: -4px; right: -4px;
+  width: 22px;
+  height: 2px;
+  border: none;
+  border-radius: 2px;
+  background: linear-gradient(to left, var(--cyan), var(--green));
+  box-shadow: 0 0 6px rgba(0, 212, 255, .5);
+  transform: rotate(-45deg);
+  transform-origin: right center;
+}
+
+/* BL — cyan bracket */
+.pf-corner.bl {
+  bottom: -5px; left: -5px;
+  border-bottom: 2px solid var(--cyan);
+  border-left:   2px solid var(--cyan);
+  border-radius: 0 0 0 3px;
+}
+
+/* BR — green bracket + ID label */
+.pf-corner.br {
+  bottom: -5px; right: -5px;
+  border-bottom: 2px solid var(--green);
+  border-right:  2px solid var(--green);
+  border-radius: 0 0 3px 0;
+}
+.pf-corner.br::after {
+  content: 'SA.dev';
+  position: absolute;
+  bottom: -14px;
+  right: 0;
+  font-size: 8px;
+  font-family: var(--font-mono, monospace);
+  color: var(--green);
+  opacity: .45;
+  letter-spacing: .1em;
+  white-space: nowrap;
+}
+
+/* ── Scanline sweep ── */
+.pf-scanline {
+  position: absolute;
+  left: 0; right: 0;
+  height: 2px;
+  background: linear-gradient(90deg,
+    transparent,
+    rgba(0, 255, 157, .45) 25%,
+    rgba(0, 255, 157, .90) 50%,
+    rgba(0, 255, 157, .45) 75%,
+    transparent
+  );
+  box-shadow: 0 0 10px rgba(0, 255, 157, .55);
+  border-radius: 2px;
+  z-index: 3;
+  pointer-events: none;
+  animation: pf-scan 4s ease-in-out infinite;
+}
+
+@keyframes pf-scan {
+  0%   { top: 0%;   opacity: 0; }
+  5%   { opacity: 1; }
+  92%  { opacity: .55; }
+  100% { top: 100%; opacity: 0; }
+}
+
 
 /* ─────────────────────────────────────
    14. ABOUT SECTION
